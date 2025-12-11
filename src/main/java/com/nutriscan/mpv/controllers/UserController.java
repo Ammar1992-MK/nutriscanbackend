@@ -23,4 +23,10 @@ public class UserController {
         userService.saveNutritionProfile(nutritionProfileDto);
         return ResponseEntity.ok(nutritionProfileDto);
     }
+
+    @PostMapping("/barcode")
+    public ResponseEntity<?> getBarcode(@RequestBody String barcode){
+        userService.getBarCodeMetadata(barcode);
+        return ResponseEntity.ok(barcode);
+    }
 }

@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
     private final NutritionProfileRepository nutritionProfileRepository;
+    private final OpenFoodFactsService openFoodFactsService;
 
-    public UserService(NutritionProfileRepository nutritionProfileRepository) {
+    public UserService(NutritionProfileRepository nutritionProfileRepository, OpenFoodFactsService openFoodFactsService) {
         this.nutritionProfileRepository = nutritionProfileRepository;
+        this.openFoodFactsService = openFoodFactsService;
     }
 
     public void saveNutritionProfile(NutritionProfileDto nutritionProfileDto){
@@ -26,5 +28,9 @@ public class UserService {
         nutritionProfile.setOtherPreferences(nutritionProfileDto.otherPreferences());
         nutritionProfile.setUser(currentUser);
         nutritionProfileRepository.save(nutritionProfile);
+    }
+
+    public void getBarCodeMetadata(String barCode){
+    openFoodFactsService.getProductByBarcode(barCode);
     }
 }
