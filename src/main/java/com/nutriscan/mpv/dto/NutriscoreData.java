@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 public record NutriscoreData(
-        Components components,
         @JsonProperty("count_proteins") Integer countProteins,
         @JsonProperty("count_proteins_reason") String countProteinsReason,
         String grade,
@@ -18,6 +17,5 @@ public record NutriscoreData(
         @JsonProperty("negative_points_max") Integer negativePointsMax,
         @JsonProperty("positive_nutrients") List<String> positiveNutrients,
         @JsonProperty("positive_points") Integer positivePoints,
-        @JsonProperty("positive_points_max") Integer positivePointsMax,
-        Integer score
+        @JsonProperty("positive_points_max") Integer positivePointsMax
 ) {}

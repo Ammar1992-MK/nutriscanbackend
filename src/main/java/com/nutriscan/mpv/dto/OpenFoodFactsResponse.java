@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public record OpenFoodFactsResponse(
         String code,
-        Product product,
-        Integer status,
-        @JsonProperty("status_verbose") String statusVerbose
+        ScannedProduct product,
+        @JsonProperty("status_verbose") String statusVerbose,
+        @JsonProperty("status") Integer status
 ) {}
