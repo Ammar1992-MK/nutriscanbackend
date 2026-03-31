@@ -33,6 +33,8 @@ public class User implements UserDetails {
 
     private String phoneNumber;
 
+    private String refreshToken;
+
     @OneToOne( mappedBy = "user",cascade = CascadeType.ALL)
     private NutritionProfile nutritionProfile;
 
@@ -128,5 +130,13 @@ public class User implements UserDetails {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+
+    public void setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
     }
 }

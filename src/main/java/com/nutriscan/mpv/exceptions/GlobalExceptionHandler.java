@@ -10,6 +10,7 @@ import org.springframework.security.authentication.AccountStatusException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.security.SignatureException;
 import java.time.Instant;
@@ -46,6 +47,17 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ExpiredJwtException.class)
     public ProblemDetail handleExpiredToken(ExpiredJwtException ex) {
         return buildProblemDetail(ErrorType.JWT_EXPIRED, ex);
+    }
+
+    // 404 Product not found
+    @ExceptionHandler(ResponseStatusException.class)
+    public ProblemDetail handleResponseStatusException(ResponseStatusException ex) {
+        log.error("Exception caught: ", ex);
+        ProblemDetail detail = ProblemDetail.forStatusAndDetail(ex.getStatusCode(), ex.getReason());
+        detail.setProperty("error", ErrorType.PRODUCT_NOT_FOUND.name());
+        detail.setProperty("description", ErrorType.PRODUCT_NOT_FOUND.getMessage());
+        detail.setProperty("timestamp", Instant.now().toString());
+        return detail;
     }
 
     // 500 Internal server error

@@ -8,7 +8,7 @@ public class NutritionProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String goal;
+    private GoalType goal;
     private String allergy;
     private String diet;
     private String otherPreferences;
@@ -33,11 +33,11 @@ public class NutritionProfile {
         this.id = id;
     }
 
-    public String getGoal() {
+    public GoalType getGoal() {
         return goal;
     }
 
-    public void setGoal(String goal) {
+    public void setGoal(GoalType goal) {
         this.goal = goal;
     }
 

@@ -19,6 +19,8 @@ public class Product {
     private Double protein;
     private Integer novaGroup;
     private Double sugar;
+    private String categoryTag;
+    private String imageUrl;
 
     public Long getId() {
         return id;
@@ -90,6 +92,22 @@ public class Product {
 
     public void setSugar(Double sugar) {
         this.sugar = sugar;
+    }
+
+    public String getCategoryTag() {
+        return categoryTag;
+    }
+
+    public void setCategoryTag(String categoryTag) {
+        this.categoryTag = categoryTag;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     @Override

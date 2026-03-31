@@ -1,3 +1,5 @@
 package com.nutriscan.mpv.dto;
 
-public record NutritionProfileDto(String goal, String allergy, String diet, String otherPreferences){}
+import com.nutriscan.mpv.GoalType;
+
+public record NutritionProfileDto(GoalType goal, String allergy, String diet, String otherPreferences){}

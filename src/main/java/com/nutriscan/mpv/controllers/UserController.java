@@ -1,6 +1,7 @@
 package com.nutriscan.mpv.controllers;
 
 import com.nutriscan.mpv.dto.NutritionProfileDto;
+import com.nutriscan.mpv.dto.ProductScoreDto;
 import com.nutriscan.mpv.services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,8 +26,7 @@ public class UserController {
     }
 
     @PostMapping("/barcode")
-    public ResponseEntity<?> getBarcode(@RequestBody String barcode){
-        userService.getBarCodeMetadata(barcode);
-        return ResponseEntity.ok(barcode);
+    public ResponseEntity<ProductScoreDto> getBarcode(@RequestBody String barcode) {
+        return ResponseEntity.ok(userService.getBarCodeMetadata(barcode));
     }
 }

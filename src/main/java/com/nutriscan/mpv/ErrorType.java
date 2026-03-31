@@ -8,6 +8,7 @@ public enum ErrorType {
     ACCESS_DENIED(HttpStatus.FORBIDDEN, "You are not authorized to access this resource"),
     INVALID_JWT(HttpStatus.FORBIDDEN, "The JWT signature is invalid"),
     JWT_EXPIRED(HttpStatus.FORBIDDEN, "The JWT token has expired"),
+    PRODUCT_NOT_FOUND(HttpStatus.NOT_FOUND, "Product not found in OpenFoodFacts"),
     INTERNAL_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "Unknown internal server error");
 
     private final HttpStatus status;
